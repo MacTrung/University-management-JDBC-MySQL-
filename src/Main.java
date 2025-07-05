@@ -9,7 +9,7 @@ public class Main {
         StudentView view = new StudentView();
         UserDAO userDAO = new UserDAO();
 
-        StudentController controller = new StudentController(studentDAO, view, userDAO);
-        controller.run();
+        StudentController stuController = new StudentController(studentDAO, view, userDAO);
+        stuController.run();
     }
 }

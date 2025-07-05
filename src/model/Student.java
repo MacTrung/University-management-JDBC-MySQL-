@@ -1,26 +1,26 @@
 package model;
 
 public class Student {
-    private int studentId;
+    private String studentId;
     private String name;
     private int age;
-    private int majorId;
+    private String majorId;
 
     public Student() {
     }
 
-    public Student(int studentId, String name, int age, int majorId) {
+    public Student(String studentId, String name, int age, String majorId) {
         this.studentId = studentId;
         this.name = name;
         this.age = age;
         this.majorId = majorId;
     }
 
-    public int getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
@@ -40,11 +40,11 @@ public class Student {
         this.age = age;
     }
 
-    public int getMajorId() {
+    public String getMajorId() {
         return majorId;
     }
 
-    public void setMajorId(int majorId) {
+    public void setMajorId(String majorId) {
         this.majorId = majorId;
     }
 }
