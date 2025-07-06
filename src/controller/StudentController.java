@@ -35,12 +35,19 @@ public class StudentController {
         String password = sc.nextLine();
 
         User user = UserDAO.login(username, password);
+
         if (user == null) {
-            System.out.println("Đăng nhập thất bại.");
-            return;
+            System.out.println("Đăng nhập thất bại.Nhập lại");
+
+            System.out.print("Tên đăng nhập: ");
+            username = sc.nextLine();
+            System.out.print("Mật khẩu: ");
+            password = sc.nextLine();
+
+            user = UserDAO.login(username, password);
         }
 
-        System.out.println("Đăng nhập thành công với vai trò: " + user.getRole());
+        System.out.println("\nĐăng nhập thành công với vai trò: " + user.getRole());
 
         if ("instructor".equalsIgnoreCase(user.getRole())) {
             view.displayInstructorInfo(user.getName(), user.getUsername());
