@@ -61,7 +61,8 @@ public class StudentDAO {
     }
 
     public void insertStudent(String id, String name, int age, String majorId) {
-        String sql = "INSERT INTO students (student_id, name, age, major_id) VALUES (?, ?, ?, ?)";
+        //String sql = "INSERT INTO students (student_id, name, age, major_id) VALUES (?, ?, ?, ?)";
+        String sql = "CALL AddNewStudent(?, ?, ?, ?, 'sv' ?, '123456')"; //cho pass
 
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -70,9 +71,10 @@ public class StudentDAO {
             stmt.setString(2, name);
             stmt.setInt(3, age);
             stmt.setString(4, majorId);
+            stmt.setString(5, id);
 
             int rows = stmt.executeUpdate();
-            System.out.println("Đã thêm thành công sinh viên: " + name +" với mã: "+id);
+            System.out.println("Đã thêm thành công sinh viên: " + name +", với mã: "+id);
         } catch (SQLException e) {
             System.out.println("Lỗi truy vấn rồi: "+e.getMessage());
         }catch (NumberFormatException e){
