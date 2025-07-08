@@ -5,6 +5,7 @@ import util.DBConnect;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
 public class StudentDAO {
@@ -28,8 +29,6 @@ public class StudentDAO {
 
         } catch (SQLException e) {
             System.out.println("Lỗi truy vấn rồi: "+e.getMessage());
-        }catch (NumberFormatException e){
-            System.out.println("nhập sai kiểu dữ liệu rồi");
         }catch (Exception e){
             System.out.print("Lỗi "+e);
         }
@@ -52,8 +51,6 @@ public class StudentDAO {
             }
         } catch (SQLException e) {
             System.out.println("Lỗi truy vấn rồi: "+e.getMessage());
-        }catch (NumberFormatException e){
-            System.out.println("nhập sai kiểu dữ liệu rồi");
         }catch (Exception e){
             System.out.print("Lỗi "+e);
         }
@@ -77,8 +74,6 @@ public class StudentDAO {
             System.out.println("Đã thêm thành công sinh viên: " + name +", với mã: "+id);
         } catch (SQLException e) {
             System.out.println("Lỗi truy vấn rồi: "+e.getMessage());
-        }catch (NumberFormatException e){
-            System.out.println("nhập sai kiểu dữ liệu rồi");
         }catch (Exception e){
             System.out.print("Lỗi "+e);
         }
@@ -100,8 +95,7 @@ public class StudentDAO {
             System.out.println("Đã sửa sinh viên: " + name);
         } catch (SQLException e) {
             System.out.println("Lỗi truy vấn rồi: "+e.getMessage());
-        }catch (NumberFormatException e){
-            System.out.println("nhập sai kiểu dữ liệu rồi");
+
         }catch (Exception e){
             System.out.print("Lỗi "+e);
         }
@@ -122,9 +116,7 @@ public class StudentDAO {
             System.out.println("truy vấn thành công: "+rows);
             System.out.println("Đã xoá thành công sinh viên: " + name +" với mã: "+id);
         } catch (SQLException e) {
-            System.out.println("Lỗi truy vấn rồi: "+e.getMessage());
-        }catch (NumberFormatException e){
-            System.out.println("nhập sai kiểu dữ liệu rồi");
+            System.out.println("Lỗi truy vấn rồi: " + e.getMessage());
         }catch (Exception e){
             System.out.print("Lỗi "+e);
         }
